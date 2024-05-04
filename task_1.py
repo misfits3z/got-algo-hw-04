@@ -49,12 +49,30 @@ def merge(left, right):
 
     return merged
 
-test_arr = [random.randint(1,1000)for i in range(1000)]
+test_arr = [random.randint(1,100)for i in range(100)]
+test_arr_1 = [random.randint(1,1000)for i in range(1000)]
+test_arr_2 = [random.randint(1,10000)for i in range(10000)]
 
 merge_sort_time = timeit.timeit("merge_sort(test_arr.copy())", globals=globals(), number=1)
 insertion_sort_time = timeit.timeit("insertion_sort(test_arr.copy())", globals=globals(), number=1)
 tim_sort_time = timeit.timeit("sorted(test_arr.copy())", globals=globals(), number=1)
 
-print(f"Час сортування злиттям: {merge_sort_time} секунд")
-print(f"Час сортування вставками: {insertion_sort_time} секунд")
-print(f"Час Timsort: {tim_sort_time} секунд")
+merge_sort_1000 = timeit.timeit("merge_sort(test_arr_1.copy())", globals=globals(), number=1)
+insertion_sort_1000 = timeit.timeit("insertion_sort(test_arr_1.copy())", globals=globals(), number=1)
+tim_sort_1000 = timeit.timeit("sorted(test_arr_1.copy())", globals=globals(), number=1)
+
+merge_sort_10000 = timeit.timeit("merge_sort(test_arr_2.copy())", globals=globals(), number=1)
+insertion_sort_10000 = timeit.timeit("insertion_sort(test_arr_2.copy())", globals=globals(), number=1)
+tim_sort_10000 = timeit.timeit("sorted(test_arr_2.copy())", globals=globals(), number=1)
+
+print(f"Час сортування злиттям для 100: {merge_sort_time} секунд")
+print(f"Час сортування вставками для 100: {insertion_sort_time} секунд")
+print(f"Час Timsort для 100: {tim_sort_time} секунд\n")
+
+print(f"Час сортування злиттям для 1000: {merge_sort_1000} секунд")
+print(f"Час сортування вставками для 1000: {insertion_sort_1000} секунд")
+print(f"Час Timsort для 1000: {tim_sort_1000} секунд\n")
+
+print(f"Час сортування злиттям для 10000: {merge_sort_10000} секунд")
+print(f"Час сортування вставками для 10000: {insertion_sort_10000} секунд")
+print(f"Час Timsort для 10000: {tim_sort_10000} секунд\n")
